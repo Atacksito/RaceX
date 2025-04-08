@@ -1,4 +1,4 @@
-﻿// Program.cs
+﻿
 using RaceXSimulator.Forms;
 using System;
 using System.Windows.Forms;

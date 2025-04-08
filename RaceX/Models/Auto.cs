@@ -1,4 +1,4 @@
-﻿// Auto.cs
+﻿
 using System;
 
 namespace RaceXSimulator.Models
