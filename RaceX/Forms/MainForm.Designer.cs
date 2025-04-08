@@ -42,14 +42,15 @@
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProgreso)).BeginInit();
             this.SuspendLayout();
-
+            // 
             // txtNombreAuto
             // 
+            this.txtNombreAuto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.txtNombreAuto.Location = new System.Drawing.Point(20, 40);
             this.txtNombreAuto.Name = "txtNombreAuto";
-            this.txtNombreAuto.Size = new System.Drawing.Size(180, 20);
+            this.txtNombreAuto.Size = new System.Drawing.Size(180, 23);
             this.txtNombreAuto.TabIndex = 0;
-
+            // 
             // cmbTipoAuto
             // 
             this.cmbTipoAuto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -58,18 +59,20 @@
             this.cmbTipoAuto.Name = "cmbTipoAuto";
             this.cmbTipoAuto.Size = new System.Drawing.Size(180, 21);
             this.cmbTipoAuto.TabIndex = 1;
-
+            // 
             // cmbClima
             // 
             this.cmbClima.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbClima.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.cmbClima.FormattingEnabled = true;
             this.cmbClima.Location = new System.Drawing.Point(20, 140);
             this.cmbClima.Name = "cmbClima";
-            this.cmbClima.Size = new System.Drawing.Size(180, 21);
+            this.cmbClima.Size = new System.Drawing.Size(180, 23);
             this.cmbClima.TabIndex = 2;
-
+            // 
             // btnAgregarAuto
             // 
+            this.btnAgregarAuto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.btnAgregarAuto.Location = new System.Drawing.Point(20, 180);
             this.btnAgregarAuto.Name = "btnAgregarAuto";
             this.btnAgregarAuto.Size = new System.Drawing.Size(180, 30);
@@ -77,9 +80,10 @@
             this.btnAgregarAuto.Text = "Agregar Auto";
             this.btnAgregarAuto.UseVisualStyleBackColor = true;
             this.btnAgregarAuto.Click += new System.EventHandler(this.btnAgregarAuto_Click);
-
+            // 
             // btnIniciarCarrera
             // 
+            this.btnIniciarCarrera.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.btnIniciarCarrera.Location = new System.Drawing.Point(20, 220);
             this.btnIniciarCarrera.Name = "btnIniciarCarrera";
             this.btnIniciarCarrera.Size = new System.Drawing.Size(180, 30);
@@ -87,10 +91,11 @@
             this.btnIniciarCarrera.Text = "Iniciar Carrera";
             this.btnIniciarCarrera.UseVisualStyleBackColor = true;
             this.btnIniciarCarrera.Click += new System.EventHandler(this.btnIniciarCarrera_Click);
-
+            // 
             // btnSiguienteTurno
             // 
             this.btnSiguienteTurno.Enabled = false;
+            this.btnSiguienteTurno.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.btnSiguienteTurno.Location = new System.Drawing.Point(20, 260);
             this.btnSiguienteTurno.Name = "btnSiguienteTurno";
             this.btnSiguienteTurno.Size = new System.Drawing.Size(180, 30);
@@ -98,7 +103,7 @@
             this.btnSiguienteTurno.Text = "Siguiente Turno";
             this.btnSiguienteTurno.UseVisualStyleBackColor = true;
             this.btnSiguienteTurno.Click += new System.EventHandler(this.btnSiguienteTurno_Click);
-
+            // 
             // dgvProgreso
             // 
             this.dgvProgreso.AllowUserToAddRows = false;
@@ -109,7 +114,7 @@
             this.dgvProgreso.ReadOnly = true;
             this.dgvProgreso.Size = new System.Drawing.Size(400, 250);
             this.dgvProgreso.TabIndex = 6;
-
+            // 
             // lblMensajes
             // 
             this.lblMensajes.AutoSize = true;
@@ -118,34 +123,37 @@
             this.lblMensajes.Name = "lblMensajes";
             this.lblMensajes.Size = new System.Drawing.Size(0, 13);
             this.lblMensajes.TabIndex = 7;
-
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(20, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 13);
+            this.label1.Size = new System.Drawing.Size(142, 15);
             this.label1.TabIndex = 8;
             this.label1.Text = "Nombre del Vehículo";
-
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.label2.Location = new System.Drawing.Point(20, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.Size = new System.Drawing.Size(114, 15);
             this.label2.TabIndex = 9;
             this.label2.Text = "Tipo de Vehículo";
-
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.label3.Location = new System.Drawing.Point(20, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.Size = new System.Drawing.Size(45, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Clima";
-
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +178,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProgreso)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
