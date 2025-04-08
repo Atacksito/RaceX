@@ -1,18 +1,22 @@
-﻿using System;
-
+﻿
+using System;
 namespace RaceX.Models
 {
     public static class AutoFactory
     {
         public static Auto CrearAuto(string tipo, string nombre)
         {
-            return tipo switch
+            switch (tipo)
             {
-                "Deportivo" => new AutoDeportivo(nombre),
-                "Todoterreno" => new AutoTodoterreno(nombre),
-                "Híbrido" => new AutoHibrido(nombre),
-                _ => throw new ArgumentException("Tipo de auto no válido"),
-            };
+                case "Deportivo":
+                    return new AutoDeportivo(nombre);
+                case "Todoterreno":
+                    return new AutoTodoterreno(nombre);
+                case "Híbrido":
+                    return new AutoHibrido(nombre);
+                default:
+                    throw new ArgumentException("Tipo de auto no válido");
+            }
         }
     }
 }

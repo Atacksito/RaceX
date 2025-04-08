@@ -113,10 +113,10 @@ namespace RaceX
                 {
                     Width = 300,
                     Maximum = 150,
-                    Value = auto.DistanciaRecorrida,
+                    //Value = auto.DistanciaRecorrida,
                     Style = ProgressBarStyle.Continuous
                 };
-                var label = new Label { Text = $"{auto.Nombre}: {auto.DistanciaRecorrida}m" };
+                var label = new Label { Text = $"{auto.Nombre}: m" };
                 flowLayoutPanel.Controls.Add(label);
                 flowLayoutPanel.Controls.Add(progressBar);
             }

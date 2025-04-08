@@ -25,9 +25,10 @@ namespace RaceX.Models
         {
             foreach (var auto in Autos)
             {
-                auto.Avanzar(ClimaActual);
+                auto.Avanzar(ClimaActual); // Asegúrate de que este método esté implementado correctamente
                 if (_random.Next(0, 100) < 30)
                 {
+                    // Reduce la distancia recorrida, pero no permite valores negativos
                     auto.DistanciaRecorrida = Math.Max(0, auto.DistanciaRecorrida - 5);
                 }
             }

@@ -1,20 +1,23 @@
-﻿using System;
+﻿using RaceX.Models;
 using RaceX.Utilities;
 
-namespace RaceX.Models
+public class AutoDeportivo : Auto
 {
-    public class AutoDeportivo : Auto
-    {
-        public AutoDeportivo(string nombre) : base(nombre)
-        {
-            Tipo = "Deportivo";
-        }
+    public AutoDeportivo(string nombre) : base(nombre) { }
 
-        public override void Avanzar(Clima clima)
+    public override void Avanzar(Clima clima)
+    {
+        switch (clima)
         {
-            int avance = new Random().Next(5, 16);
-            if (clima == Clima.Soleado) avance += 3;
-            DistanciaRecorrida += avance;
+            case Clima.Soleado:
+                DistanciaRecorrida += 20; // Avanza más rápido en clima soleado
+                break;
+            case Clima.Lluvia:
+                DistanciaRecorrida += 10; // Avanza más lento en lluvia
+                break;
+            case Clima.Ventoso:
+                DistanciaRecorrida += 15; // Velocidad media en clima ventoso
+                break;
         }
     }
 }
