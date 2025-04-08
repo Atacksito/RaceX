@@ -4,7 +4,12 @@ using RaceX.Utilities;
 
 namespace RaceX.Models
 {
-    p
+    public class AutoDeportivo : Auto
+    {
+        public AutoDeportivo(string nombre) : base(nombre)
+        {
+            Tipo = "Deportivo";
+        }
 
         public override void Avanzar(Clima clima)
         {
