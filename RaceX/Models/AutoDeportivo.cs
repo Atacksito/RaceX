@@ -4,7 +4,8 @@ using RaceX.Utilities;
 
 namespace RaceX.Models
 {
-    public class AutoD
+    public class AutoDeportivo : Auto
+    {
         public AutoDeportivo(string nombre) : base(nombre)
         {
             Tipo = "Deportivo";

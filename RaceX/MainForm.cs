@@ -149,5 +149,10 @@ namespace RaceX
         {
 
         }
+
+        private void MainForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
