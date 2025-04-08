@@ -1,19 +1,27 @@
-﻿using RaceX.Utilities; // Añadido para referencia a Clima
+﻿// Auto.cs
+using System;
 
-namespace RaceX.Models
+namespace RaceXSimulator.Models
 {
     public abstract class Auto
     {
         public string Nombre { get; private set; }
-        public string Tipo { get; protected set; }
         public int DistanciaRecorrida { get; protected set; }
+        public string Tipo { get; protected set; }
 
         protected Auto(string nombre)
         {
+            if (string.IsNullOrEmpty(nombre))
+                throw new ArgumentException("El nombre no puede estar vacío.");
+
             Nombre = nombre;
-            DistanciaRecorrida = 0;
         }
 
         public abstract void Avanzar(Clima clima);
+
+        public void AjustarDistancia(int ajuste)
+        {
+            DistanciaRecorrida = Math.Max(0, DistanciaRecorrida + ajuste);
+        }
     }
 }

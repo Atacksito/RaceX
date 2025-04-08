@@ -1,20 +1,17 @@
-﻿using System;
-using RaceX.Utilities;
+﻿using RaceXSimulator.Models;
+using System;
 
-namespace RaceX.Models
+public class AutoTodoterreno : Auto
 {
-    public class AutoTodoterreno : Auto
+    public AutoTodoterreno(string nombre) : base(nombre)
     {
-        public AutoTodoterreno(string nombre) : base(nombre)
-        {
-            Tipo = "Todoterreno";
-        }
+        Tipo = "Todoterreno";
+    }
 
-        public override void Avanzar(Clima clima)
-        {
-            int avance = new Random().Next(5, 16);
-            if (clima == Clima.Lluvia) avance += 2;
-            DistanciaRecorrida += avance;
-        }
+    public override void Avanzar(Clima clima)
+    {
+        int avanceBase = new Random().Next(5, 16);
+        int bonificacion = (clima == Clima.Lluvia) ? 2 : 0;
+        DistanciaRecorrida += avanceBase + bonificacion;
     }
 }

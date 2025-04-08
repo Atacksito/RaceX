@@ -1,8 +1,6 @@
-﻿using System.Security.Claims;
-using System;
-using RaceX.Utilities;
+﻿using System;
 
-namespace RaceX.Models
+namespace RaceXSimulator.Models
 {
     public class AutoDeportivo : Auto
     {
@@ -13,9 +11,9 @@ namespace RaceX.Models
 
         public override void Avanzar(Clima clima)
         {
-            int avance = new Random().Next(5, 16);
-            if (clima == Clima.Soleado) avance += 3; 
-            DistanciaRecorrida += avance;
+            int avanceBase = new Random().Next(5, 16);
+            int bonificacion = (clima == Clima.Soleado) ? 3 : 0;
+            DistanciaRecorrida += avanceBase + bonificacion;
         }
     }
 }
