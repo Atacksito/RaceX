@@ -54,10 +54,11 @@
             // cmbTipoAuto
             // 
             this.cmbTipoAuto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoAuto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.cmbTipoAuto.FormattingEnabled = true;
             this.cmbTipoAuto.Location = new System.Drawing.Point(20, 90);
             this.cmbTipoAuto.Name = "cmbTipoAuto";
-            this.cmbTipoAuto.Size = new System.Drawing.Size(180, 21);
+            this.cmbTipoAuto.Size = new System.Drawing.Size(180, 23);
             this.cmbTipoAuto.TabIndex = 1;
             // 
             // cmbClima
