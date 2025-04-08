@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RaceX.Utilities;
 
 namespace RaceX.Models
 {
-    internal class Auto
+    public abstract class Auto
     {
+        public string Nombre { get; private set; }
+        public string Tipo { get; protected set; }
+        public int DistanciaRecorrida { get; protected set; }
+
+        protected Auto(string nombre)
+        {
+            Nombre = nombre;
+            DistanciaRecorrida = 0;
+        }
+
+        public abstract void Avanzar(Clima clima);
     }
 }
