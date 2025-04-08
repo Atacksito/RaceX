@@ -1,4 +1,4 @@
-﻿using RaceX.Utilities;
+﻿using RaceX.Utilities; // Añadido para referencia a Clima
 
 namespace RaceX.Models
 {

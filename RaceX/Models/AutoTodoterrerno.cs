@@ -1,23 +1,20 @@
-﻿using RaceX.Models;
+﻿using System;
 using RaceX.Utilities;
 
-public class AutoTodoterreno : Auto
+namespace RaceX.Models
 {
-    public AutoTodoterreno(string nombre) : base(nombre) { }
-
-    public override void Avanzar(Clima clima)
+    public class AutoTodoterreno : Auto
     {
-        switch (clima)
+        public AutoTodoterreno(string nombre) : base(nombre)
         {
-            case Clima.Soleado:
-                DistanciaRecorrida += 15; // Velocidad media en clima soleado
-                break;
-            case Clima.Lluvia:
-                DistanciaRecorrida += 15; // Avanza igual en lluvia
-                break;
-            case Clima.Ventoso:
-                DistanciaRecorrida += 15; // Avanza igual en clima ventoso
-                break;
+            Tipo = "Todoterreno";
+        }
+
+        public override void Avanzar(Clima clima)
+        {
+            int avance = new Random().Next(5, 16);
+            if (clima == Clima.Lluvia) avance += 2;
+            DistanciaRecorrida += avance;
         }
     }
 }

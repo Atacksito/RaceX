@@ -144,5 +144,10 @@ namespace RaceX
             dgvAutos.DataSource = null;
             carrera = new Carrera();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,23 +1,20 @@
-﻿using RaceX.Models;
+﻿using System;
 using RaceX.Utilities;
 
-public class AutoHibrido : Auto
+namespace RaceX.Models
 {
-    public AutoHibrido(string nombre) : base(nombre) { }
-
-    public override void Avanzar(Clima clima)
+    public class AutoHibrido : Auto
     {
-        switch (clima)
+        public AutoHibrido(string nombre) : base(nombre)
         {
-            case Clima.Soleado:
-                DistanciaRecorrida += 18; // Avanza más rápido en clima soleado
-                break;
-            case Clima.Lluvia:
-                DistanciaRecorrida += 12; // Velocidad media en lluvia
-                break;
-            case Clima.Ventoso:
-                DistanciaRecorrida += 8; // Avanza más lento en clima ventoso
-                break;
+            Tipo = "Híbrido";
+        }
+
+        public override void Avanzar(Clima clima)
+        {
+            int avance = new Random().Next(5, 16);
+            if (clima == Clima.Ventoso) avance = Math.Max(0, avance - 1);
+            DistanciaRecorrida += avance;
         }
     }
 }

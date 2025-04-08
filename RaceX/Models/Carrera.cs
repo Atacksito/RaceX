@@ -34,6 +34,7 @@ namespace RaceX.Models
             }
         }
 
+
         public List<Auto> VerificarGanadores()
         {
             return Autos.Where(a => a.DistanciaRecorrida >= 150).ToList();
