@@ -1,17 +1,21 @@
-﻿using RaceXSimulator.Models;
-using System;
+﻿using System;
+using RaceX.Models;
 
-public class AutoHibrido : Auto
+namespace RaceX.Models
 {
-    public AutoHibrido(string nombre) : base(nombre)
+    public class AutoHibrido : Auto
     {
-        Tipo = "Híbrido";
-    }
+        private static readonly Random _random = new Random();
 
-    public override void Avanzar(Clima clima)
-    {
-        int avanceBase = new Random().Next(5, 16);
-        int penalizacion = (clima == Clima.Ventoso) ? -1 : 0;
-        DistanciaRecorrida += avanceBase + penalizacion;
+        public AutoHibrido(string nombre) : base(nombre)
+        {
+            Tipo = "Híbrido";
+        }
+
+        public override void Avanzar(Clima clima)
+        {
+            int avanceBase = _random.Next(5, 16);
+            DistanciaRecorrida += clima == Clima.Ventoso ? avanceBase - 1 : avanceBase;
+        }
     }
 }

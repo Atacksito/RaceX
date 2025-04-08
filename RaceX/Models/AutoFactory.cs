@@ -1,7 +1,6 @@
-﻿
-using System;
+﻿using System;
 
-namespace RaceXSimulator.Models
+namespace RaceX.Models
 {
     public static class AutoFactory
     {
@@ -16,7 +15,7 @@ namespace RaceXSimulator.Models
                 case "Híbrido":
                     return new AutoHibrido(nombre);
                 default:
-                    throw new ArgumentException("Tipo de auto no válido.");
+                    throw new ArgumentException("Tipo no válido");
             }
         }
     }

@@ -58,6 +58,7 @@
     <Compile Include="Models\AutoTodoterrerno.cs" />
     <Compile Include="Models\AutoHibrido.cs" />
     <Compile Include="Models\Carrera.cs" />
+    <Compile Include="Models\ProgresoAuto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Clima.cs" />

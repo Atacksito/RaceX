@@ -1,4 +1,4 @@
-﻿namespace RaceXSimulator.Models
+﻿namespace RaceX.Models
 {
     public enum Clima
     {

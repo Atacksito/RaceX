@@ -1,9 +1,9 @@
-﻿using RaceXSimulator.Models;
+﻿using RaceX.Models;
 using System;
-using System.Windows.Forms;
 using System.Linq;
+using System.Windows.Forms;
 
-namespace RaceXSimulator.Forms
+namespace RaceX.Forms
 {
     public partial class MainForm : Form
     {
@@ -12,21 +12,54 @@ namespace RaceXSimulator.Forms
         public MainForm()
         {
             InitializeComponent();
+            ConfigurarDataGridView();
             cmbClima.DataSource = Enum.GetValues(typeof(Clima));
             cmbTipoAuto.Items.AddRange(new[] { "Deportivo", "Todoterreno", "Híbrido" });
+            btnSiguienteTurno.Enabled = false;
+        }
+
+        private void ConfigurarDataGridView()
+        {
+            dgvProgreso.AutoGenerateColumns = false;
+
+            dgvProgreso.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "Nombre",
+                HeaderText = "Nombre",
+                Width = 120
+            });
+
+            dgvProgreso.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "Tipo",
+                HeaderText = "Tipo",
+                Width = 100
+            });
+
+            dgvProgreso.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "Distancia",
+                HeaderText = "Distancia",
+                Width = 80
+            });
         }
 
         private void btnAgregarAuto_Click(object sender, EventArgs e)
         {
             try
             {
-                var auto = AutoFactory.CrearAuto(
+                var nuevoAuto = AutoFactory.CrearAuto(
                     cmbTipoAuto.SelectedItem?.ToString(),
-                    txtNombreAuto.Text
+                    txtNombreAuto.Text.Trim()
                 );
-                _carrera.Autos.Add(auto);
+
+                if (_carrera.Autos.Any(a => a.Nombre.Equals(nuevoAuto.Nombre, StringComparison.OrdinalIgnoreCase)))
+                    throw new ArgumentException("¡Nombre duplicado!");
+
+                _carrera.Autos.Add(nuevoAuto);
                 ActualizarProgreso();
-                lblMensajes.Text = "Auto agregado correctamente.";
+                txtNombreAuto.Clear();
+                lblMensajes.Text = $"{nuevoAuto.Nombre} agregado ✅";
             }
             catch (Exception ex)
             {
@@ -41,7 +74,8 @@ namespace RaceXSimulator.Forms
                 _carrera.IniciarCarrera((Clima)cmbClima.SelectedItem);
                 btnIniciarCarrera.Enabled = false;
                 btnAgregarAuto.Enabled = false;
-                lblMensajes.Text = "¡Carrera iniciada!";
+                btnSiguienteTurno.Enabled = true;
+                lblMensajes.Text = $"🏁 Carrera iniciada - Clima: {_carrera.ClimaActual}";
             }
             catch (Exception ex)
             {
@@ -51,24 +85,37 @@ namespace RaceXSimulator.Forms
 
         private void btnSiguienteTurno_Click(object sender, EventArgs e)
         {
-            _carrera.SiguienteTurno();
-            ActualizarProgreso();
-
-            var ganador = _carrera.ObtenerGanador();
-            if (ganador != null)
+            try
             {
-                lblMensajes.Text = $"¡Ganador: {ganador.Nombre}!";
-                btnSiguienteTurno.Enabled = false;
+                _carrera.SiguienteTurno();
+                ActualizarProgreso();
+
+                var ganador = _carrera.ObtenerGanador();
+                if (ganador != null)
+                {
+                    lblMensajes.Text = $"🏆 ¡{ganador.Nombre} ganó con {ganador.DistanciaRecorrida}m!";
+                    btnSiguienteTurno.Enabled = false;
+                    MessageBox.Show("¡Carrera finalizada!", "RaceX", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    lblMensajes.Text = "⏭ Turno completado";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void ActualizarProgreso()
         {
-            dgvProgreso.DataSource = _carrera.Autos.Select(a => new
+            dgvProgreso.DataSource = _carrera.Autos.Select(a => new ProgresoAuto
             {
-                a.Nombre,
-                a.Tipo,
-                a.DistanciaRecorrida
+                Nombre = a.Nombre,
+                Tipo = a.Tipo,
+                Distancia = $"{a.DistanciaRecorrida}m",
+                Progreso = a.DistanciaRecorrida
             }).ToList();
         }
     }

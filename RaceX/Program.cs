@@ -1,9 +1,9 @@
 ﻿
-using RaceXSimulator.Forms;
+using RaceX.Forms;
 using System;
 using System.Windows.Forms;
 
-namespace RaceXSimulator
+namespace RaceX
 {
     static class Program
     {

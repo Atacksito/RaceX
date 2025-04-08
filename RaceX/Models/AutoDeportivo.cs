@@ -1,9 +1,12 @@
 ﻿using System;
+using RaceX.Models;
 
-namespace RaceXSimulator.Models
+namespace RaceX.Models
 {
     public class AutoDeportivo : Auto
     {
+        private static readonly Random _random = new Random();
+
         public AutoDeportivo(string nombre) : base(nombre)
         {
             Tipo = "Deportivo";
@@ -11,9 +14,8 @@ namespace RaceXSimulator.Models
 
         public override void Avanzar(Clima clima)
         {
-            int avanceBase = new Random().Next(5, 16);
-            int bonificacion = (clima == Clima.Soleado) ? 3 : 0;
-            DistanciaRecorrida += avanceBase + bonificacion;
+            int avanceBase = _random.Next(5, 16);
+            DistanciaRecorrida += clima == Clima.Soleado ? avanceBase + 3 : avanceBase;
         }
     }
 }

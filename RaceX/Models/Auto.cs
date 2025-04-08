@@ -1,7 +1,7 @@
-﻿
-using System;
+﻿using System;
+using RaceX.Models;
 
-namespace RaceXSimulator.Models
+namespace RaceX.Models
 {
     public abstract class Auto
     {
@@ -12,7 +12,7 @@ namespace RaceXSimulator.Models
         protected Auto(string nombre)
         {
             if (string.IsNullOrEmpty(nombre))
-                throw new ArgumentException("El nombre no puede estar vacío.");
+                throw new ArgumentException("El nombre no puede estar vacío");
 
             Nombre = nombre;
         }
